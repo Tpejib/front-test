@@ -1,0 +1,115 @@
+// colors 
+
+$bg: #F9FAFC;
+$accent: #C774EE;
+$title: #111563;
+$link: #286DBD;
+$bodyText: #63718E;
+$inputs: #3A3A3A;
+$white: #ffffff;
+
+	// Add
+
+	$pink: #FEE5FF;
+	$blue: #E8F8FF;
+	$blueDark: #BAD9E7;
+
+	// Shadows
+
+	@mixin shadowPrimary {
+		box-shadow: 0px 2px 16px rgba(32, 108, 164, 0.16);
+	}
+	@mixin shadowSuccess {
+		box-shadow: 0px 5px 10px rgba(76, 174, 80, 0.3);
+	}
+
+// fonts
+
+$epilogue: 'Epilogue';
+$openSans: 'Open Sans';
+
+@mixin fonts($size: false, $lh: false, $color: false, $weight: false, $font: false, $ls: false, $td: false) {
+    @if $size { font-size: $size; }
+    @if $lh { line-height: $lh; }
+    @if $color { color: $color; }
+    @if $weight { font-weight: $weight; }
+    @if $font { font-family: $font, Helvetica, Arial, sans-serif;}
+    @if $ls { letter-spacing: $ls}
+    @if $td {text-decoration: $td}
+}
+
+	// Title
+
+	@mixin h1 {
+		@include fonts(42px, 120%, $title, 700, $epilogue);
+	}
+	@mixin h2 {
+		@include fonts(32px, 120%, $title, 700, $epilogue);
+	}
+	@mixin h3 {
+		@include fonts(22px, 100%, $title, 700, $epilogue);
+	}
+	@mixin h4 {
+		@include fonts(22px, 100%, $title, 400, $epilogue);
+	}
+
+	// Paragraph
+
+	@mixin pMiddle {
+		@include fonts(18px, 150%, false, 400, $openSans);
+	}
+	@mixin pSmall {
+		@include fonts(16px, 150%, false, 400, $openSans);
+	}
+
+	// Button
+
+	@mixin btnMid {
+		@include fonts(20px, 100%, false, 700, $openSans);
+	}
+	@mixin btnSmall {
+		@include fonts(15px, 150%, false, 700, $openSans);
+	}
+
+// mixins
+
+@mixin push-auto {
+    margin: {
+     left: auto;
+     right: auto;
+    }
+}
+
+
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+@mixin wrapp($top: 0, $bottom: 0, $right: 0, $left: 0){
+    top: $top;
+    bottom: $bottom;
+    right: $right;
+    left: $left
+}
+
+@mixin flex-box($align-items: false, $justify-content: false, $direction: false) {
+    display: flex;
+    @if $align-items { align-items: $align-items; }
+    @if $justify-content { justify-content: $justify-content; }
+    @if $direction { flex-direction: $direction; }
+}
+
+@mixin resp-ratio($x,$y, $pseudo: false) {
+    $padding: unquote( ( $y / $x ) * 100 + '%' );
+    @if $pseudo {
+     &:before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-top: $padding;
+     }
+    } @else {
+     padding-top: $padding;
+    }
+}

@@ -1,0 +1,14 @@
+# ignore various IDE project files and folders
+.idea
+.idea/
+.buildpath
+.env
+.project
+.settings/
+nbproject/
+node_modules
+yarn.lock
+package-lock.json
+
+# ignore mac files
+.DS_Store

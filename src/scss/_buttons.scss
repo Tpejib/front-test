@@ -1,0 +1,41 @@
+.btn {
+    @include flex-box(center, center);
+
+    // height: 53px;
+    padding: 14px 18px;
+
+
+    background-color: $accent;
+
+    @include btnMid;
+    color: $white;
+
+    border: 2px solid $accent;
+    border-radius: 10px;
+
+    cursor: pointer;
+    transition: all ease .2s;
+    &:hover {
+        padding: 16px;
+        @include shadowSuccess;
+    }
+
+    &_small {
+        padding: 4px 18px;
+        @include btnSmall;
+        &:hover {
+            padding: 4px 18px;
+        }
+    }
+
+    &_sec {
+        color: $bodyText;
+        border-color: $bodyText;
+        background-color: transparent;
+        &:hover {
+            color: $accent;
+            border-color: $accent;
+            box-shadow: none
+        }
+    }
+}
