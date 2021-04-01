@@ -3,6 +3,7 @@
 @import 'fonts';
 @import 'buttons';
 @import 'header';
+@import 'sections';
 
 * {
     color: $bodyText;
@@ -26,8 +27,17 @@ h4 {
     @include h4;
 }
 
+h1, h2 {
+    @include media-q('xs') {
+        @include h3;
+    }
+}
+
 .container {
     @include push-auto;
-    max-width: 1200px;
-    padding: 0 10px;
+    max-width: 1260px;
+    padding: 0 40px;
+    @include media-q('xs') {
+        padding: 0 10px;
+    }
 }
