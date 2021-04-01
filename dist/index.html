@@ -7,8 +7,42 @@
     <link rel="stylesheet" href="./css/style.min.css">
 </head>
 <body>
-<header>
-    <h1>DSADS23332</h1>
+<header class="header-wrapp">
+    <div class="container">
+        <div class="header">
+            <a href="#" class="header-logo">
+                <img src="./images/logo.svg" alt="Logo" class="header-logo__img">
+            </a>
+            <div class="header-toggle">
+                <input class="header-toggle__btn" type="checkbox" id="header-toggle__btn" />
+                <label class="header-toggle__icon" for="header-toggle__btn">
+                    <div class="header-toggle__navicon"></div>
+                </label>
+                <div class="header-content header-content_toggle">
+                    <form action="#" class="header-search">
+                        <input type="text" class="header-search__input" placeholder="Search..." required>
+                        <img src="./images/search-alt.svg" alt="Search" class="header-search__icon">
+                    </form>
+                    <div class="header-feedback">
+                        <img src="./images/mobile-vibration.svg" alt="Call us" class="header-feedback__icon">
+                        <div class="header-feedback__text">Call us</div>
+                    </div>
+                    <nav class="header-menu">
+                        <ul class="header-menu__list">
+                            <li class="header-menu__item"><a href="#">About</a></li>
+                            <li class="header-menu__item"><a href="#">Product</a></li>
+                            <li class="header-menu__item"><a href="#">FAQ</a></li>
+                            <li class="header-menu__item"><a href="#">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <div class="header-btns">
+                        <a href="#" class="btn btn_small">Download</a>
+                        <a href="#" class="btn btn_small btn_sec">Sign up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 
 <div class="main">

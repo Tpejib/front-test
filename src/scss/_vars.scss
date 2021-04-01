@@ -113,3 +113,18 @@ $openSans: 'Open Sans';
      padding-top: $padding;
     }
 }
+
+$breakpoints: (
+	'xs': ('(max-width: 576px)'),
+	'sm': ('(max-width: 768px)'),
+	'md': ('(max-width: 992px)'),
+	'lg': ('(max-width: 1199px)'),
+);
+
+@mixin media-q($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media #{inspect(map-get($breakpoints, $breakpoint))} {
+			@content;
+		}
+	}
+}

@@ -13,15 +13,15 @@ const path = {
         html: [srcPath + '/*.html', '!' + srcPath + '/_*.html'],
         scss: srcPath + '/scss/style.scss',
         js: srcPath + '/js/script.js',
-        images: srcPath + '/images/**/*.{jpg, png, svg}',
-        fonts: srcPath + '/fonts/*'
+        images: srcPath + '/images/**/*.{jpg,png,svg}',
+        fonts: srcPath + '/fonts/*.{ttf,woff,woff2,eot}'
     },
     watch: {
         html: srcPath + '/**/*.html',
         scss: srcPath + '/scss/**/*.scss',
         js: srcPath + '/js/**/*.js',
-        images: srcPath + '/images/**/*.{jpg, png, svg}',
-        fonts: srcPath + '/fonts/*'
+        images: srcPath + '/images/**/*.{jpg,png,svg}',
+        fonts: srcPath + '/fonts/*.{ttf,woff,woff2,eot}'
     },
     clean: `./${distPath}/`
 };
