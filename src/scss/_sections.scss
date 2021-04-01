@@ -1,6 +1,4 @@
 .section {
-    overflow-x: hidden;
-    
     &__content {
         @include flex-box(center);
         @include media-q('lg') {
@@ -9,12 +7,37 @@
     }
     &__main-text {
         flex-shrink: 0;
-        max-width: 600px;
         @include media-q('lg') {
-            max-width: none;
+            max-width: none !important;
         }
         p {
             margin: 20px 0 30px;
+        }
+    }
+
+    &-card {
+        position: relative;
+        width: 100%;
+        max-width: 380px;
+        background: $white;
+        padding: 30px 30px 20px;
+        box-shadow: 0px 2px 16px rgba(32, 108, 164, 0.16);
+        border-radius: 8px;
+        &__head {
+            @include flex-box(center);
+            margin-bottom: 10px;
+        }
+        &__icon {
+            @include flex-box(center, center);
+            width: 60px;
+            height: 60px;
+            background-color: $pink;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        &__name {
+            color: $title;
+            font-weight: 700;
         }
     }
     
@@ -36,6 +59,10 @@
     }
     
     &_1 & {
+        &__main-text {
+            max-width: 600px;
+        }
+
         &__img {
             position: absolute;
             left: -102px;
@@ -44,7 +71,7 @@
                 position: relative;
                 max-width: 87%;
             }
-            @include media-q('sm') {
+            @include media-q('xs') {
                 min-width: 100%;
             }
             &-block {
@@ -64,8 +91,80 @@
                     transform: translateX(-50%);
                     max-width: 67%;
                 }
-                @include media-q('sm') {
+                @include media-q('xs') {
                     max-width: 77%;
+                }
+            }
+        }
+    }
+
+    &_2 {
+        padding: 148px 0 228px;
+        @include media-q('lg') {
+            padding: 50px 0 132px;
+        }
+        @include media-q('xs') {
+            padding: 46px 0 60px;
+        }
+        .btn {
+            max-width: 180px;
+            @include media-q('xs') {
+                max-width: none;
+            }
+        }
+    }
+
+    &_2 & {
+        &__main-text {
+            max-width: 585px;
+        }
+
+        &-card {
+            transform: translateY(70%);
+            @include media-q('lg') {
+                transform: none;
+                margin-top: 136px;
+            }
+            @include media-q('xs') {
+                margin-top: 172px;
+            }
+        }
+
+        &__img {
+            position: absolute;
+            right: 34px;
+            @include media-q('lg') {
+                right: 50%;
+                top: 0;
+                max-width: 100%;
+                transform: translateX(32%);
+            }
+            @include media-q('xs') {
+                top: 13px;
+                transform: translateX(50%);
+            }
+            &-block {
+                @include flex-box(center, center);
+                position: relative;
+                width: 100%;
+                @include media-q('lg') {
+                    justify-content: flex-end;
+                    order: 1;
+                }
+            }
+            &-bg {
+                position: absolute;
+                right: 22px;
+                @include media-q('lg') {
+                    right: 50%;
+                    top: 26px;
+                    max-width: 88%;
+                    transform: translateX(20%);
+                }
+                @include media-q('xs') {
+                    top: 19px;
+                    max-width: 120%;
+                    transform: translateX(56%);
                 }
             }
         }

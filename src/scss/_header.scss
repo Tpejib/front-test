@@ -11,6 +11,8 @@
         top: 0;
         background-color: $white;
         @include shadowPrimary;
+
+        z-index: 2;
     }
     
     &-logo {
@@ -44,13 +46,15 @@
                 border: 1px solid $accent;
                 visibility: visible;
                 opacity: 1;
+                box-shadow: none;
             }
 
             @include media-q('md') {
                 font-size: 15px;
-                border: 1px solid $bodyText;
+                border: 1px solid transparent;
                 visibility: visible;
                 opacity: 1;
+                box-shadow: 0px 0px 1px #052953;
             }
         }
         &__icon {
@@ -67,6 +71,7 @@
             border: 1px solid $accent;
             visibility: visible;
             opacity: 1;
+            box-shadow: none;
         }
         &:hover &__icon {
             filter: invert(78%) sepia(63%) saturate(5305%) hue-rotate(229deg) brightness(94%) contrast(98%);
@@ -98,7 +103,7 @@
     &-content {
         @include flex-box(center);
         background-color: $white;
-        transition: max-height .2s ease-out;
+        transition: max-height 1s ease-out;
         @include media-q('md') {
             overflow: auto;
             // align-items: flex-start;
