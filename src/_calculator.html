@@ -1,0 +1,52 @@
+<section class="section calculator-wrapp">
+    <div class="calculator">
+        <h2 class="calculator__title">Calculator</h2>
+        <div class="calculator__desc">
+            Nam libero tempore, cum soluta nobis est eligendi optio
+        </div>
+        <form class="calculator-form" id="calculator-form">
+            <div class="calculator__fields">
+                <select class="calculator__field calculator__colors" id="calculator__colors" autocomplete="off">
+                    <option value="">Color</option>
+                    <option value="1">red</option>
+                    <option value="2">green</option>
+                    <option value="3">blue</option>
+                    <option value="4">orange</option>
+                </select>
+                <select class="calculator__field calculator__size" id="calculator__size" autocomplete="off">
+                    <option value="">Size</option>
+                    <option value="1">100%</option>
+                    <option value="2">150%</option>
+                    <option value="3">200%</option>
+                </select>
+                <div class="calculator__field calculator__count" id="calculator__count">
+                    <button type="button" class="calculator__count-minus" id="calculator__count-minus">-</button>
+                    <input type="number" name="number" value="100" step="10" min="0" max="200" readonly id="calculator__count-input" class="calculator__count-input">
+                    <button type="button" class="calculator__count-plus" id="calculator__count-plus">+</button>
+                </div>
+                <div class="calculator__field calculator__datepicker" id="calculator__datepicker">
+                    <input type="text" name="" id="calculator__datepicker-input">
+                </div>
+                <select class="calculator__field calculator__city" id="calculator__city" autocomplete="off">
+                    <option value="">City</option>
+                    <option value="1">Kyiv</option>
+                    <option value="2">Odessa</option>
+                    <option value="3">Rivne</option>
+                    <option value="4">Lviv</option>
+                </select>
+                <select class="calculator__field calculator__delivery" id="calculator__delivery" autocomplete="off">
+                    <option value="">Delivery</option>
+                    <option value="1">New Post</option>
+                    <option value="2">Urkposhta</option>
+                    <option value="3">Pickup</option>
+                </select>
+                
+            </div>
+            <div class="calculator-submit">
+                <div class="calculator-submit__value">$ 56.25</div>
+                <button type="submit" class="btn">Proceed</button>
+            </div>
+        </form>
+        
+    </div>
+</section>

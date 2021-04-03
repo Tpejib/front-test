@@ -103,7 +103,7 @@
     &-content {
         @include flex-box(center);
         background-color: $white;
-        transition: max-height 1s ease-out;
+        transition: max-height .5s ease-out;
         @include media-q('md') {
             overflow: auto;
             // align-items: flex-start;
