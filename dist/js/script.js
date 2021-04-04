@@ -24,6 +24,8 @@ calcNumberPlus.addEventListener('click', function () {
 }); // Content Slider
 
 var stepsItems = document.querySelectorAll('.steps-content__item');
+var sectionSlide = document.querySelector('.section__slide-content');
+console.log(sectionSlide);
 
 var slideContent = function slideContent(slide) {
   var list = slide.querySelectorAll('.slide-content__list-item');
@@ -49,7 +51,8 @@ var slideContent = function slideContent(slide) {
 
 stepsItems.forEach(function (item) {
   return slideContent(item);
-}); // Steps Slider
+});
+slideContent(sectionSlide); // Steps Slider
 
 var stepsRange = document.querySelector('.steps-range');
 var stepsRangeItems = stepsRange.querySelectorAll('.steps-range__item');

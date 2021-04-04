@@ -35,6 +35,8 @@ calcNumberPlus.addEventListener('click', function() {
 // Content Slider
 
 const stepsItems = document.querySelectorAll('.steps-content__item')
+const sectionSlide = document.querySelector('.section__slide-content')
+console.log(sectionSlide);
 
 const slideContent = function(slide) {
     let list = slide.querySelectorAll('.slide-content__list-item')
@@ -57,6 +59,7 @@ const slideContent = function(slide) {
 }
 
 stepsItems.forEach(item => slideContent(item))
+slideContent(sectionSlide)
 
 // Steps Slider
 
@@ -105,4 +108,4 @@ new Swiper('.reviews-slider', {
           slidesPerView: 3,
         },
       }
-});
+})
