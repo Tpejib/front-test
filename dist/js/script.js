@@ -76,4 +76,24 @@ stepsRangeItems.forEach(function (item) {
       });
     });
   });
+}); // Reviews Slider
+
+new Swiper('.reviews-slider', {
+  loop: true,
+  slidesPerView: 1,
+  centeredSlides: true,
+  centeredSlidesBounds: true,
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'bullets',
+    clickable: true
+  },
+  breakpoints: {
+    576: {
+      slidesPerView: 2
+    },
+    992: {
+      slidesPerView: 3
+    }
+  }
 });

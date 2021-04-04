@@ -37,8 +37,8 @@ calcNumberPlus.addEventListener('click', function() {
 const stepsItems = document.querySelectorAll('.steps-content__item')
 
 const slideContent = function(slide) {
-    const list = slide.querySelectorAll('.slide-content__list-item')
-    const textList = slide.querySelectorAll('.slide-content__text')
+    let list = slide.querySelectorAll('.slide-content__list-item')
+    let textList = slide.querySelectorAll('.slide-content__text')
 
     list.forEach(item => {
         item.addEventListener('click', function() {
@@ -84,3 +84,25 @@ stepsRangeItems.forEach(item => {
         })
     })
 })
+
+// Reviews Slider
+
+new Swiper('.reviews-slider', {
+    loop: true,
+    slidesPerView: 1,
+    centeredSlides: true,
+    centeredSlidesBounds: true,
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+    breakpoints: {
+        576: {
+          slidesPerView: 2,
+        },
+        992: {
+          slidesPerView: 3,
+        },
+      }
+});
