@@ -1,0 +1,188 @@
+.steps {
+    @include push-auto;
+    max-width: 980px;
+    &-wrapp {
+        padding: 82px 0 72px;
+        @include media-q('lg') {
+            padding: 70px 0 76px;
+        }
+        @include media-q('xs') {
+            padding: 40px 0;
+        }
+    }
+    &-head {
+        text-align: center;
+        &__title {
+            margin-bottom: 16px;
+        }
+        @include media-q('xs') {
+            text-align: start;
+        }
+    }
+    &-range {
+        padding: 25px 0 60px;
+        @include flex-box(center, space-between);
+        list-style: none;
+        counter-reset: num;
+        &__item {
+            position: relative;
+            flex-grow: 1;
+            color: $blueDark;
+            cursor: pointer;
+            transition: color .2s ease;
+            @include media-q('xs') {
+                font-size: 0;
+            }
+            &.active {
+                color: $accent;
+            }
+            &:before {
+                content: counter(num);
+                counter-increment: num;
+                @include push-auto;
+                @include flex-box(center, center);
+                width: 40px;
+                height: 40px;
+                border: 6px solid $white;
+                border-radius: 50%;
+                background-color: $blue;
+                color: $blueDark;
+                font-size: 24px;
+                font-weight: 700;
+                transition: all .2s ease;
+            }
+            &.active:before {
+                background-color: $pink;
+                color: $accent;
+            }
+            &:after {
+                @include pseudo;
+                height: 2px;
+                width: 100%;
+                background-color: $blue;
+                top: 26px;
+                left: -50%;
+                z-index: -1;
+                transition: background-color .2s ease;
+            }
+            &.active:after {
+                background-color: $pink;
+            }
+            &:first-child::after {
+                content: none;
+            }
+            &:hover {
+                color: $accent;
+                &:before {
+                    background-color: $pink;
+                    color: $accent;
+                }
+            }
+        }
+    }
+    &-content {
+        display: none;
+        &.active {
+            display: block;
+        }
+        &__head {
+            margin-bottom: 5px;
+        }
+        &__num {
+            @include h3;
+            margin-bottom: 10px;
+        }
+        
+        &__item {
+            @include flex-box(false, space-between);
+            @include media-q('lg') {
+                flex-direction: column;
+            }
+        }
+        .slide-content {
+            &__list {
+                list-style: none;
+                margin-right: 30px;
+                @include media-q('lg') {
+                    @include flex-box(center);
+                    overflow: auto;
+                    margin-right: -40px;
+                }
+                &-item {
+                    position: relative;
+                    padding: 15px 0 15px 50px;
+                    cursor: pointer;
+                    transition: all .2s ease;
+    
+                    &:before {
+                        @include pseudo;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+    
+                        height: 1px;
+                        width: 20px;
+                        background-color: $bodyText;
+                        border-radius: 40px;
+    
+                        transition: all .2s ease;
+                    }
+                    &:hover {
+                        @include h3;
+                        color: $accent;
+                        &:before {
+                            width: 40px;
+                            background-color: $accent;
+                        }
+                    }
+                    &.active {
+                    @include h3;
+                    color: $accent;
+                        &:before {
+                            width: 40px;
+                            background-color: $accent;
+                        }
+                    }
+
+                    @include media-q('lg') {
+                        flex-shrink: 0;
+                        padding-left: 0;
+                        padding-right: 30px;
+                        &:before {
+                            content: none;
+                        }
+                    }
+                }
+            }
+            &__text {
+                display: none;
+                max-width: 480px;
+                @include media-q('lg') {
+                    max-width: none;
+                }
+                &.active {
+                    display: block;
+                }
+                ul, ol {
+                    margin: 20px 0;
+                    list-style-type: none;
+                    counter-reset: num;
+                    li {
+                        &:not(:first-child) {
+                            padding-top: 20px;
+                        }
+                        &:before {
+                            content: counter(num) '. ';
+                            counter-increment: num;
+                            color: $accent;
+                            font-weight: 700;
+                        }
+                    }
+                }
+                strong {
+                    color: $accent;
+                }
+            }
+        }
+    }
+}

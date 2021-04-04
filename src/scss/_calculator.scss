@@ -41,7 +41,7 @@
         flex-basis: calc(100% / 4 - 20px);
 
         border: 1px solid transparent;
-        box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.05);
+        box-shadow: 0px 1px 3px rgba(5, 41, 83, 0.14);
         background-color: $bg;
         border-radius: 10px;
 
@@ -153,7 +153,7 @@
                     border: none;
                     border-radius: 10px;
                     font-size: 1.4rem;
-                    box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.05);
+                    box-shadow: 0px 1px 3px rgba(5, 41, 83, 0.14);
                 }
             }
             &-controls {
@@ -193,6 +193,9 @@
                 margin-bottom: 0;
                 width: 100%;
                 max-width: 197px;
+            }
+            @include media-q('xs') {
+                max-width: none;
             }
         }
         @include media-q('lg') {
