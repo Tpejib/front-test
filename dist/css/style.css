@@ -1781,6 +1781,7 @@ input::-moz-focus-inner {
   line-height: 150%;
   font-weight: 400;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {

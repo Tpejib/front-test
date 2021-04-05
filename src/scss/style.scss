@@ -13,6 +13,7 @@
 * {
     color: $bodyText;
     @include pMiddle;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
