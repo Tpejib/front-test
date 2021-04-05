@@ -1449,6 +1449,86 @@ input::-moz-focus-inner {
   background-color: #286DBD;
 }
 
+.faq {
+  padding: 88px 0;
+}
+
+.faq-content {
+  margin: 30px 0 56px;
+}
+
+.faq-item {
+  padding: 20px;
+  -webkit-box-shadow: 0px 2px 16px rgba(32, 108, 164, 0.16);
+          box-shadow: 0px 2px 16px rgba(32, 108, 164, 0.16);
+  border-radius: 8px;
+}
+
+.faq-item:not(:first-child) {
+  margin-top: 20px;
+}
+
+.faq-item__q {
+  padding-right: 28px;
+  position: relative;
+  cursor: pointer;
+}
+
+.faq-item__q::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%) scale(-1, -1);
+      -ms-transform: translateY(-50%) scale(-1, -1);
+          transform: translateY(-50%) scale(-1, -1);
+  width: 20px;
+  height: 12px;
+  background-image: url("../images/arrow-big.svg");
+  background-size: contain;
+  -webkit-transition: -webkit-transform .2s ease;
+  transition: -webkit-transform .2s ease;
+  -o-transition: transform .2s ease;
+  transition: transform .2s ease;
+  transition: transform .2s ease, -webkit-transform .2s ease;
+}
+
+.faq-item__q h4 {
+  font-family: "Open Sans";
+  font-weight: 700;
+  color: #111563;
+}
+
+.faq-item__a {
+  display: none;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #F9FAFC;
+  -webkit-transition: height .25s ease;
+  -o-transition: height .25s ease;
+  transition: height .25s ease;
+  overflow: hidden;
+}
+
+.faq-item.active .faq-item__q::after {
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.faq-item.active .faq-item__a {
+  display: block;
+}
+
+.faq .btn,
+.faq .calculator__datepicker .qs-submit,
+.calculator__datepicker .faq .qs-submit {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 180px;
+}
+
 * {
   color: #63718E;
   font-size: 18px;
@@ -1754,6 +1834,14 @@ h4 {
   .slide-content__text {
     max-width: none;
   }
+
+  .faq {
+    padding: 0 0 30px;
+  }
+
+  .faq h2 {
+    text-align: center;
+  }
 }
 
 @media (max-width: 1199px) and (max-width: 576px) {
@@ -1993,6 +2081,15 @@ h4 {
   .reviews__head {
     text-align: start;
     margin-bottom: 30px;
+  }
+
+  .faq-item__q::after {
+    width: 10px;
+    height: 6px;
+  }
+
+  .faq-item__q h4 {
+    font-size: 18px;
   }
 
   h1,

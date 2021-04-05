@@ -1,0 +1,75 @@
+.faq {
+    padding: 88px 0;
+    @include media-q('lg') {
+        padding: 0 0 30px;
+    }
+
+    h2 {
+        @include media-q('lg') {
+            text-align: center;
+        }
+    }
+
+    &-content {
+        margin: 30px 0 56px;
+    }
+    &-item {
+        padding: 20px;
+        box-shadow: 0px 2px 16px rgba(32, 108, 164, 0.16);
+        border-radius: 8px;
+        &:not(:first-child) {
+            margin-top: 20px;
+        }
+        &__q {
+            padding-right: 28px;
+            position: relative;
+            cursor: pointer;
+            
+            &::after {
+                @include pseudo;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%) scale(-1, -1);
+                width: 20px;
+                height: 12px;
+                background-image: url('../images/arrow-big.svg');
+                background-size: contain;
+                transition: transform .2s ease;
+                @include media-q('xs') {
+                    width: 10px;
+                    height: 6px;
+                }
+            }
+            h4 {
+                font-family: $openSans;
+                font-weight: 700;
+                color: $title;
+                @include media-q('xs') {
+                    font-size: 18px;
+                }
+            }
+        }
+        &__a {
+            display: none;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid $bg;
+            transition: height .25s ease;
+            overflow: hidden;
+        }
+        &.active & {
+            &__q {
+                &::after {
+                    transform: translateY(-50%);
+                }
+            }
+            &__a {
+                display: block;
+            }
+        }
+    }
+    .btn {
+        @include push-auto;
+        max-width: 180px;
+    }
+}

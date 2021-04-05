@@ -109,3 +109,23 @@ new Swiper('.reviews-slider', {
         },
       }
 })
+
+// FAQ Toggle 
+
+const faqItems = document.querySelectorAll('.faq-item')
+
+console.log(faqItems);
+
+const faqToggle = function(faq) {
+    const faqQ = faq.querySelector('.faq-item__q')
+    console.log(faqQ)
+    faqQ.addEventListener('click', function() {
+        if (!faq.classList.contains('active')) {
+            faq.classList.add('active')
+        } else {
+            faq.classList.remove('active')
+        }
+    })
+}
+
+faqItems.forEach(item => {faqToggle(item)})

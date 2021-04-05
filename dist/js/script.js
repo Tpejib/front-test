@@ -99,4 +99,23 @@ new Swiper('.reviews-slider', {
       slidesPerView: 3
     }
   }
+}); // FAQ Toggle 
+
+var faqItems = document.querySelectorAll('.faq-item');
+console.log(faqItems);
+
+var faqToggle = function faqToggle(faq) {
+  var faqQ = faq.querySelector('.faq-item__q');
+  console.log(faqQ);
+  faqQ.addEventListener('click', function () {
+    if (!faq.classList.contains('active')) {
+      faq.classList.add('active');
+    } else {
+      faq.classList.remove('active');
+    }
+  });
+};
+
+faqItems.forEach(function (item) {
+  faqToggle(item);
 });
