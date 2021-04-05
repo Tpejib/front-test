@@ -1,3 +1,6 @@
+@import 'libs/datepicker';
+@import 'libs/swiper';
+
 @import 'reset';
 @import 'vars';
 @import 'fonts';
@@ -9,6 +12,7 @@
 @import 'reviews';
 @import 'faq';
 @import 'footer';
+
 
 * {
     color: $bodyText;

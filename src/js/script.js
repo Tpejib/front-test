@@ -1,6 +1,6 @@
-// import 'tom-select';
-
-
+import TomSelect from 'tom-select'
+import datepicker from 'js-datepicker'
+import Swiper from 'swiper'
 
 // Tom Select
 
@@ -14,7 +14,7 @@ new TomSelect("#footer-contact__input", selectOptions)
 
 // Datepicker
 
-const datepicker = datepicker('#calculator__datepicker-input', {
+const datePicker = datepicker('#calculator__datepicker-input', {
     dateSelected: new Date(),
     position: 'tr'
 })

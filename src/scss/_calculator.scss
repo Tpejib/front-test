@@ -31,6 +31,7 @@
     &__fields {
         @include flex-box(center);
         flex-wrap: wrap;
+        flex-grow: 1;
         @include media-q('lg') {
             margin-right: -20px;
         }
