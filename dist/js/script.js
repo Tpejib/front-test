@@ -6,7 +6,8 @@ var selectOptions = {};
 new TomSelect("#calculator__colors", selectOptions);
 new TomSelect("#calculator__size", selectOptions);
 new TomSelect("#calculator__city", selectOptions);
-new TomSelect("#calculator__delivery", selectOptions); // Datepicker
+new TomSelect("#calculator__delivery", selectOptions);
+new TomSelect("#footer-contact__input", selectOptions); // Datepicker
 
 var datepicker = datepicker('#calculator__datepicker-input', {
   dateSelected: new Date(),
@@ -25,7 +26,6 @@ calcNumberPlus.addEventListener('click', function () {
 
 var stepsItems = document.querySelectorAll('.steps-content__item');
 var sectionSlide = document.querySelector('.section__slide-content');
-console.log(sectionSlide);
 
 var slideContent = function slideContent(slide) {
   var list = slide.querySelectorAll('.slide-content__list-item');
@@ -102,16 +102,27 @@ new Swiper('.reviews-slider', {
 }); // FAQ Toggle 
 
 var faqItems = document.querySelectorAll('.faq-item');
-console.log(faqItems);
 
 var faqToggle = function faqToggle(faq) {
   var faqQ = faq.querySelector('.faq-item__q');
+  var faqA = faq.querySelector('.faq-item__a');
   console.log(faqQ);
   faqQ.addEventListener('click', function () {
     if (!faq.classList.contains('active')) {
       faq.classList.add('active');
+      faqA.style.height = 'auto';
+      var height = faqA.clientHeight + 'px';
+      faqA.style.height = '0px';
+      setTimeout(function () {
+        faqA.style.height = height;
+      }, 0);
     } else {
-      faq.classList.remove('active');
+      faqA.style.height = '0px';
+      faqA.addEventListener('transitionend', function () {
+        faq.classList.remove('active');
+      }, {
+        once: true
+      });
     }
   });
 };

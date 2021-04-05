@@ -51,11 +51,14 @@
         }
         &__a {
             display: none;
-            margin-top: 14px;
-            padding-top: 14px;
-            border-top: 1px solid $bg;
+            
             transition: height .25s ease;
             overflow: hidden;
+            p {
+                margin-top: 14px;
+                padding-top: 14px;
+                border-top: 1px solid $bg;
+            }
         }
         &.active & {
             &__q {

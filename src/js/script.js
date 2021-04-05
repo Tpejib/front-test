@@ -10,6 +10,7 @@ new TomSelect("#calculator__colors", selectOptions)
 new TomSelect("#calculator__size", selectOptions)
 new TomSelect("#calculator__city", selectOptions)
 new TomSelect("#calculator__delivery", selectOptions)
+new TomSelect("#footer-contact__input", selectOptions)
 
 // Datepicker
 
@@ -36,7 +37,6 @@ calcNumberPlus.addEventListener('click', function() {
 
 const stepsItems = document.querySelectorAll('.steps-content__item')
 const sectionSlide = document.querySelector('.section__slide-content')
-console.log(sectionSlide);
 
 const slideContent = function(slide) {
     let list = slide.querySelectorAll('.slide-content__list-item')
@@ -114,16 +114,31 @@ new Swiper('.reviews-slider', {
 
 const faqItems = document.querySelectorAll('.faq-item')
 
-console.log(faqItems);
-
 const faqToggle = function(faq) {
     const faqQ = faq.querySelector('.faq-item__q')
+    const faqA = faq.querySelector('.faq-item__a')
     console.log(faqQ)
     faqQ.addEventListener('click', function() {
         if (!faq.classList.contains('active')) {
             faq.classList.add('active')
+            faqA.style.height = 'auto';
+
+            let height = faqA.clientHeight + 'px';
+            
+            faqA.style.height = '0px';
+
+            setTimeout(function () {
+                faqA.style.height = height;
+            }, 0);
+
         } else {
-            faq.classList.remove('active')
+            faqA.style.height = '0px';
+
+            faqA.addEventListener('transitionend', function () {
+                faq.classList.remove('active');
+            }, {
+                once: true
+            });
         }
     })
 }

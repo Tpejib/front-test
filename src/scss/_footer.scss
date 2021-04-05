@@ -1,0 +1,167 @@
+.footer {
+    color: $footerText;
+    font-size: 16px;
+    &-wrapp {
+        margin-top: 77px;
+        padding: 60px 0 50px;
+        background-color: #1C1E1F;
+        @include media-q('xs') {
+            margin-top: 30px;
+            padding: 30px 0;
+        }
+    }
+    &-main {
+        @include flex-box(false, space-between);
+        @include media-q('lg') {
+            flex-wrap: wrap;
+            justify-content: start;
+        }
+    }
+    &-contact {
+        &__text {
+            font-size: 16px;
+            color: $footerText;
+            b {
+                font-size: 16px;
+                color: $footerText;
+            }
+        }
+        @include media-q('lg') {
+            order: 2;
+            flex-basis: 100%;
+            margin-top: 35px;
+        }
+        &__rating {
+            margin: 46px 0;
+            font-size: 16px;
+            color: $accent;
+            @include flex-box(center);
+            img:not(:last-child) {
+                margin-right: 4px;
+            }
+            img:last-child {
+                margin-right: 10px;
+            }
+        }
+        &__input {
+            position: relative;
+            border: 2px solid $footerText;
+            border-radius: 28px;
+            .ts-dropdown {
+                position: absolute;
+                bottom: calc(100% + 10px);
+                left: 0;
+                min-width: 100%;
+                z-index: 2;
+                padding: 24px;
+                background-color: #1C1E1F;
+                border: 2px solid $footerText;
+                border-radius: 6px;
+                .option {
+                    text-align: start;
+                    border-radius: 10px;
+                    color: $footerText;
+                    padding: 10px 8px 6px;
+                    cursor: pointer;
+                    &:hover, &:focus {
+                        color: $bodyText;
+                    }
+                }
+            }
+            &.ts-control {
+                width: fit-content;
+            }
+            .ts-input {
+                position: relative;
+                cursor: pointer;
+                &:after {
+                    @include pseudo;
+                    right: 27px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background-image: url('../images/arrow-big.svg');
+                    background-size: contain;
+                    width: 10px;
+                    height: 6px;
+                    filter: grayscale(1)
+                }
+            }
+            .items {
+                @include flex-box;
+            }
+            .item {
+                padding: 8px 48px 8px 20px;
+            }
+            input {
+                width: 106px;
+                padding: 8px 20px 8px 20px;
+                border: none;
+                background-color: transparent;
+            }
+        }
+    }
+    &-menu {
+        @include flex-box;
+        
+        &__list {
+            list-style: none;
+            &:first-child {
+                margin-right: 140px;
+                @include media-q('lg') {
+                    margin-right: 65px;
+                }
+                @include media-q('xs') {
+                    margin-right: 103px;
+                }
+            }
+            li {
+                &:not(:first-child) {
+                    margin-top: 15px;
+                }
+                a {
+                    font-size: 16px;
+                    color: $footerText;
+                    text-decoration: none;
+                    transition: color .2s ease;
+                    &:hover {
+                        color: $bodyText;
+                    }
+                }
+            }
+        }
+    }
+    &-labels {
+        @include media-q('lg') {
+            @include push-auto;
+        }
+        @include media-q('xs') {
+            order: 3;
+            margin-left: 0;
+            margin-top: 40px;
+        }
+        img {
+            cursor: pointer;
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+        }
+        &__social {
+            img {
+                filter: grayscale(1) brightness(.6);
+                transition: filter .2s ease;
+                &:hover {
+                    filter: none;
+                }
+            }
+        }
+        &__payments {
+            margin: 30px 0;
+        }
+    }
+    &__copyright {
+        font-size: 16px;
+        color: $footerText;
+        margin-top: 30px;
+        color: $inputs;
+    }
+}

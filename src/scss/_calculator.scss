@@ -104,6 +104,20 @@
                 }
             }
         }
+
+        .ts-input {
+            &:after {
+                @include pseudo;
+                right: 22px;
+                top: 50%;
+                transform: translateY(-50%) scale(-1, -1);
+                background-image: url('../images/arrow-big.svg');
+                background-size: contain;
+                width: 10px;
+                height: 6px;
+            }
+        }
+        
         .items {
             @include flex-box(center)
         }
@@ -128,6 +142,8 @@
             background-color: transparent;
             color: $title;
             transition: .2s ease;
+            font-size: 20px;
+            font-weight: 700;
             &:hover {
                 color: $accent;
             }

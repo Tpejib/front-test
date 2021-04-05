@@ -185,6 +185,7 @@
         }
         &__navicon {
             position: relative;
+            display: block;
             width: 30px;
             height: 3px;
             background-color: $bodyText;
