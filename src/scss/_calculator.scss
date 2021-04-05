@@ -40,10 +40,10 @@
         margin: 25px 20px 5px 0;
         flex-basis: calc(100% / 4 - 20px);
 
-        border: 1px solid transparent;
-        box-shadow: 0px 1px 3px rgba(5, 41, 83, 0.14);
-        background-color: $bg;
-        border-radius: 10px;
+        // border: 1px solid transparent;
+        // box-shadow: 0px 1px 3px rgba(5, 41, 83, 0.14);
+        // background-color: $bg;
+        // border-radius: 10px;
 
         cursor: pointer;
 
@@ -54,10 +54,6 @@
         @include media-q('xs') {
             flex-basis: calc(100% - 20px);
         }
-
-        &:hover {
-            // border-color: $accent;
-        }
         
         input {
             width: 100%;
@@ -67,9 +63,6 @@
             padding: 10px 20px;
             color: $title;
 
-            &:hover {
-                // border-color: $accent;
-            }
 
             &::placeholder{
                 color: $title;
@@ -82,9 +75,14 @@
             }
         }
 
-        .input-active {
-            border-color: $accent;
+        .ts-input {
+            @extend .layer;
+            &.input-active {
+                border-color: $accent;
+                box-shadow: none;
+            }
         }
+
         .ts-dropdown {
             position: absolute;
             top: 100%;
@@ -92,6 +90,11 @@
             width: 100%;
             z-index: 2;
             padding: 24px;
+
+            border: 1px solid transparent;
+            box-shadow: 0px 1px 3px rgba(5, 41, 83, 0.14);
+            background-color: $bg;
+            border-radius: 10px;
             .option {
                 text-align: start;
                 border-radius: 10px;
@@ -129,6 +132,7 @@
         }
     }
     &__count {
+        @extend .layer;
         position: relative;
         // padding: 10px 20px;
         &-input {
@@ -160,6 +164,7 @@
     }
 
     &__datepicker {
+        @extend .layer;
         .qs {
             &-datepicker {
                 &-container {
@@ -222,5 +227,16 @@
         @include media-q('xs') {
             flex-direction: column;
         }
+    }
+}
+
+.layer {
+    border: 1px solid transparent;
+    box-shadow: 0px 1px 3px rgba(5, 41, 83, 0.14);
+    background-color: $bg;
+    border-radius: 10px;
+    transition: box-shadow .2s ease;
+    &:hover {
+        box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.05);
     }
 }

@@ -32,6 +32,29 @@ calcNumberPlus.addEventListener('click', function() {
     calcNumber.stepUp(1)
 })
 
+// Form Submit 
+
+const calcForm = document.querySelector('#calculator-form')
+
+calcForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    let color = calcForm.querySelector('#calculator__colors').innerText;
+    let size = calcForm.querySelector('#calculator__size').innerText;
+    let count = calcForm.querySelector('#calculator__count-input').value;
+    let date = calcForm.querySelector('#calculator__datepicker-input').value;
+    let city = calcForm.querySelector('#calculator__city').innerText;
+    let delivery = calcForm.querySelector('#calculator__delivery').innerText;
+
+    console.group('Order Details');
+        console.log(`Color: ${color}`);
+        console.log(`Size: ${size}`);
+        console.log(`Count: ${count}`);
+        console.log(`Date: ${date}`);
+        console.log(`City: ${city}`);
+        console.log(`Delivery: ${delivery}`);
+    console.groupEnd()
+})
+
 
 // Content Slider
 
@@ -117,7 +140,6 @@ const faqItems = document.querySelectorAll('.faq-item')
 const faqToggle = function(faq) {
     const faqQ = faq.querySelector('.faq-item__q')
     const faqA = faq.querySelector('.faq-item__a')
-    console.log(faqQ)
     faqQ.addEventListener('click', function() {
         if (!faq.classList.contains('active')) {
             faq.classList.add('active')

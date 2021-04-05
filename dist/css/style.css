@@ -864,11 +864,6 @@ input::-moz-focus-inner {
   margin: 25px 20px 5px 0;
   -ms-flex-preferred-size: calc(100% / 4 - 20px);
       flex-basis: calc(100% / 4 - 20px);
-  border: 1px solid transparent;
-  -webkit-box-shadow: 0px 1px 3px rgba(5, 41, 83, 0.14);
-          box-shadow: 0px 1px 3px rgba(5, 41, 83, 0.14);
-  background-color: #F9FAFC;
-  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -908,8 +903,10 @@ input::-moz-focus-inner {
   color: #111563;
 }
 
-.calculator__field .input-active {
+.calculator__field .ts-input.input-active {
   border-color: #C774EE;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .calculator__field .ts-dropdown {
@@ -919,6 +916,11 @@ input::-moz-focus-inner {
   width: 100%;
   z-index: 2;
   padding: 24px;
+  border: 1px solid transparent;
+  -webkit-box-shadow: 0px 1px 3px rgba(5, 41, 83, 0.14);
+          box-shadow: 0px 1px 3px rgba(5, 41, 83, 0.14);
+  background-color: #F9FAFC;
+  border-radius: 10px;
 }
 
 .calculator__field .ts-dropdown .option {
@@ -1069,6 +1071,30 @@ input::-moz-focus-inner {
 .calculator-submit .calculator__datepicker .qs-submit,
 .calculator__datepicker .calculator-submit .qs-submit {
   margin-bottom: 5px;
+}
+
+.layer,
+.calculator__field .ts-input,
+.calculator__count,
+.calculator__datepicker {
+  border: 1px solid transparent;
+  -webkit-box-shadow: 0px 1px 3px rgba(5, 41, 83, 0.14);
+          box-shadow: 0px 1px 3px rgba(5, 41, 83, 0.14);
+  background-color: #F9FAFC;
+  border-radius: 10px;
+  -webkit-transition: -webkit-box-shadow .2s ease;
+  transition: -webkit-box-shadow .2s ease;
+  -o-transition: box-shadow .2s ease;
+  transition: box-shadow .2s ease;
+  transition: box-shadow .2s ease, -webkit-box-shadow .2s ease;
+}
+
+.layer:hover,
+.calculator__field .ts-input:hover,
+.calculator__count:hover,
+.calculator__datepicker:hover {
+  -webkit-box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.05);
+          box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.05);
 }
 
 .steps {

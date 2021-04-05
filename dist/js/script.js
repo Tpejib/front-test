@@ -22,6 +22,25 @@ calcNumberMinus.addEventListener('click', function () {
 });
 calcNumberPlus.addEventListener('click', function () {
   calcNumber.stepUp(1);
+}); // Form Submit 
+
+var calcForm = document.querySelector('#calculator-form');
+calcForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var color = calcForm.querySelector('#calculator__colors').innerText;
+  var size = calcForm.querySelector('#calculator__size').innerText;
+  var count = calcForm.querySelector('#calculator__count-input').value;
+  var date = calcForm.querySelector('#calculator__datepicker-input').value;
+  var city = calcForm.querySelector('#calculator__city').innerText;
+  var delivery = calcForm.querySelector('#calculator__delivery').innerText;
+  console.group('Order Details');
+  console.log("Color: ".concat(color));
+  console.log("Size: ".concat(size));
+  console.log("Count: ".concat(count));
+  console.log("Date: ".concat(date));
+  console.log("City: ".concat(city));
+  console.log("Delivery: ".concat(delivery));
+  console.groupEnd();
 }); // Content Slider
 
 var stepsItems = document.querySelectorAll('.steps-content__item');
@@ -106,7 +125,6 @@ var faqItems = document.querySelectorAll('.faq-item');
 var faqToggle = function faqToggle(faq) {
   var faqQ = faq.querySelector('.faq-item__q');
   var faqA = faq.querySelector('.faq-item__a');
-  console.log(faqQ);
   faqQ.addEventListener('click', function () {
     if (!faq.classList.contains('active')) {
       faq.classList.add('active');
