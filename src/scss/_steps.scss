@@ -107,6 +107,9 @@
             @include flex-box(center);
             overflow: auto;
             margin-right: -40px;
+            @include media-q('xs') {
+                margin-right: -10px;
+            }
         }
         &-item {
             position: relative;

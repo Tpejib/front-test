@@ -2120,6 +2120,10 @@ h4 {
   .section_5 .section__img-block {
     margin-bottom: 66px;
   }
+
+  .slide-content__list {
+    margin-right: -10px;
+  }
 }
 
 @media (max-width: 992px) {
