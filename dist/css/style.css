@@ -975,6 +975,14 @@ input::-moz-focus-inner {
 
 .calculator__count-input {
   text-align: center;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+
+.calculator__count-input::-webkit-outer-spin-button,
+.calculator__count-input::-webkit-inner-spin-button {
+  display: none;
 }
 
 .calculator__count-minus,
