@@ -49,6 +49,10 @@
             &:hover {
                 @include h3;
                 color: $accent;
+                @include media-q('xs') {
+                    @include h4;
+                    color: $accent;
+                }
                 &:before {
                     width: 40px;
                     background-color: $accent;
