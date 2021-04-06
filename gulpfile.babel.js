@@ -49,15 +49,13 @@ function server() {
         notify: false
     })
 }
-
-task('html', function() {
+function html() {
     return src(path.src.html)
         .pipe(fileInclude())
         .pipe(dest(path.build.html))
         .pipe(bSync.stream())
-})
-
-task('images', function() {
+}
+function images() {
     return src(path.src.images)
         .pipe(dest(path.build.images))
         .pipe(src(path.src.images))
@@ -68,9 +66,9 @@ task('images', function() {
         }))
         .pipe(dest(path.build.images))
         .pipe(bSync.stream())
-})
+}
 
-task('scss', function() {
+function styles() {
     return src(path.src.scss)
         // .pipe(initMap())
         .pipe(sass({
@@ -81,9 +79,8 @@ task('scss', function() {
         // .pipe(writeMap())
         .pipe(dest(path.build.css))
         .pipe(bSync.stream())
-})
-
-task('js', function() {
+}
+function scripts() {
     return src(path.src.js)
         .pipe(
             webpack({
@@ -113,28 +110,27 @@ task('js', function() {
         })
         .pipe(dest(path.build.js))
         .pipe(bSync.stream())
-})
-
-task('fonts', function() {
+}
+function fonts() {
     return src(path.src.fonts)
         .pipe(dest(path.build.fonts))
         .pipe(bSync.stream())
-})
+}
 
-task('watch-files', function() {
-    watch([path.watch.html], series('html'));
-    watch([path.watch.scss], series('scss'));
-    watch([path.watch.js], series('js'));
-    watch([path.watch.images], series('images'));
-    watch([path.watch.fonts], series('fonts'));
-})
+function watchFiles() {
+    watch([path.watch.html], html);
+    watch([path.watch.scss], styles);
+    watch([path.watch.js], scripts);
+    watch([path.watch.images], images);
+    watch([path.watch.fonts], fonts);
+}
 
-task('clean', function() {
+function cleanDist() {
     return del(path.clean)
-})
+}
 
-const build = series('clean', parallel('scss', 'js', 'html', 'images', 'fonts'))
-const watcher = parallel(build, 'watch-files', server)
+const build = series(cleanDist, parallel(styles, scripts, html, images, fonts))
+const watcher = parallel(build, watchFiles, server)
 const start = series(build, watcher)
 
 
