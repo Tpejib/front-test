@@ -17,6 +17,9 @@
         &-item {
             position: relative;
             padding: 15px 0 15px 50px;
+            @include h4;
+            color: $bodyText;
+
             cursor: pointer;
             transition: all .2s ease;
 

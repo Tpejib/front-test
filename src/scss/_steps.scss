@@ -15,6 +15,11 @@
         &__title {
             margin-bottom: 16px;
         }
+        &__text {
+            @include push-auto;
+            max-width: 573px;
+            text-align: center;
+        }
         @include media-q('xs') {
             text-align: start;
         }
@@ -46,9 +51,9 @@
                 border: 6px solid $white;
                 border-radius: 50%;
                 background-color: $blue;
-                color: $blueDark;
-                font-size: 24px;
-                font-weight: 700;
+
+                @include fonts(24px, false, $blueDark, 700, $epilogue);
+                
                 transition: all .2s ease;
             }
             &.active:before {

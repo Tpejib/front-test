@@ -1,6 +1,7 @@
 import TomSelect from 'tom-select/dist/js/tom-select.base'
 import datepicker from 'js-datepicker'
 import Swiper from 'swiper'
+import SwiperCore, {Pagination} from 'swiper/core'
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -118,6 +119,8 @@ document.addEventListener("DOMContentLoaded", () => {
     slideContent(sectionSlide)
 
     // Reviews Slider
+
+    SwiperCore.use([Pagination]);
     
     new Swiper('.reviews-slider', {
         loop: true,

@@ -25,6 +25,8 @@
             a {
                 @include fonts(16px, 16px, $accent, 700);
                 text-decoration: none;
+                padding-bottom: 10px;
+                border-bottom: 1px dotted $accent;
             }
         }
     }

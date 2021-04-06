@@ -14,6 +14,11 @@
             margin: 20px 0 30px;
         }
     }
+    &__img {
+        &-bg {
+            z-index: -1;
+        }
+    }
 
     &-card {
         position: relative;
@@ -36,6 +41,7 @@
             margin-right: 10px;
         }
         &__name {
+            font-family: $epilogue;
             color: $title;
             font-weight: 700;
         }
@@ -104,7 +110,7 @@
     &_2 {
         padding: 148px 0 228px;
         @include media-q('lg') {
-            padding: 50px 0 132px;
+            padding: 50px 0 173px;
         }
         @include media-q('xs') {
             padding: 46px 0 60px;
@@ -174,7 +180,7 @@
     }
 
     &_3 {
-        padding: 200px 0 30px;
+        padding: 90px 0 30px;
         @include media-q('lg') {
             padding: 20px 0 40px;
         }
