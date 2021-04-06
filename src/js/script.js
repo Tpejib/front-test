@@ -1,8 +1,8 @@
-import TomSelect from 'tom-select'
+import TomSelect from 'tom-select/dist/js/tom-select.base'
 import datepicker from 'js-datepicker'
 import Swiper from 'swiper'
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
 
     // Tom Select
     
@@ -23,22 +23,25 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Calc Number
     
-    const calcNumber = document.querySelector('#calculator__count-input')
-    const calcNumberMinus = document.querySelector('#calculator__count-minus')
-    const calcNumberPlus = document.querySelector('#calculator__count-plus')
+    const calcCount = document.querySelector('#calculator__count')
+    const calcCountInput = document.querySelector('#calculator__count-input')
     
-    calcNumberMinus.addEventListener('click', function() {
-        calcNumber.stepDown(1)
-    })
-    calcNumberPlus.addEventListener('click', function() {
-        calcNumber.stepUp(1)
+    calcCount.addEventListener('click', e => {
+        switch (e.target.id) {
+            case 'calculator__count-minus':
+                calcCountInput.stepDown(1)
+                break;
+            case 'calculator__count-plus':
+                calcCountInput.stepUp(1)
+                break;
+        }
     })
     
     // Form Submit 
     
     const calcForm = document.querySelector('#calculator-form')
     
-    calcForm.addEventListener('submit', function(e) {
+    calcForm.addEventListener('submit', e => {
         e.preventDefault();
         let color = calcForm.querySelector('#calculator__colors').innerText
         let size = calcForm.querySelector('#calculator__size').innerText
@@ -57,44 +60,16 @@ document.addEventListener("DOMContentLoaded", function() {
         console.groupEnd()
     })
     
-    
-    // Content Slider
-    
-    const stepsItems = document.querySelectorAll('.steps-content__item')
-    const sectionSlide = document.querySelector('.section__slide-content')
-    
-    const slideContent = function(slide) {
-        let list = slide.querySelectorAll('.slide-content__list-item')
-        let textList = slide.querySelectorAll('.slide-content__text')
-    
-        list.forEach(item => {
-            item.addEventListener('click', function() {
-                let listId = this.dataset.id
-                list.forEach(item => item.classList.remove('active'))
-                this.classList.add('active')
-                textList.forEach(function(item) {
-                    let textId = item.dataset.id
-                    item.classList.remove('active')
-                    if (textId == listId) {
-                        item.classList.add('active')
-                    }
-                })
-            })
-        })
-    }
-    
-    stepsItems.forEach(item => slideContent(item))
-    slideContent(sectionSlide)
-    
-    // Steps Slider
+    // Steps Sliders
     
     const stepsRange = document.querySelector('.steps-range')
     const stepsRangeItems = stepsRange.querySelectorAll('.steps-range__item')
     const stepsContent = document.querySelectorAll('.steps-content')
-    
-    stepsRangeItems.forEach(item => {
-        item.addEventListener('click', function() {
-            let currentId = this.dataset.id
+
+    stepsRange.addEventListener('click', e => {
+        if (e.target.classList.contains('steps-range__item')) {
+            let item = e.target
+            let currentId = item.dataset.id
             stepsRangeItems.forEach(item => {
                 let itemId = item.dataset.id
                 if (itemId <= currentId) {
@@ -102,17 +77,46 @@ document.addEventListener("DOMContentLoaded", function() {
                 } else {
                     item.classList.remove('active')
                 }
-                stepsContent.forEach(function(item) {
-                    let contentId = item.dataset.id
+            })
+            stepsContent.forEach(item => {
+                let contentId = item.dataset.id
+                item.classList.remove('active')
+                if (contentId == currentId) {
+                    item.classList.add('active')
+                }
+            })
+        }
+    })
+
+    // Content Slider
+    
+    const stepsItems = document.querySelectorAll('.steps-content__item')
+    const sectionSlide = document.querySelector('.section__slide-content')
+    
+    function slideContent(slide) {
+        let list = slide.querySelectorAll('.slide-content__list-item')
+        let textList = slide.querySelectorAll('.slide-content__text')
+
+        slide.addEventListener('click', e => {
+            if (e.target.classList.contains('slide-content__list-item')) {
+                let item = e.target
+                let itemId = item.dataset.id
+                list.forEach(item => item.classList.remove('active'))
+                item.classList.add('active')
+                textList.forEach(item => {
+                    let textId = item.dataset.id
                     item.classList.remove('active')
-                    if (contentId == currentId) {
+                    if (textId == itemId) {
                         item.classList.add('active')
                     }
                 })
-            })
+            }
         })
-    })
+    }
     
+    stepsItems.forEach(item => slideContent(item))
+    slideContent(sectionSlide)
+
     // Reviews Slider
     
     new Swiper('.reviews-slider', {
@@ -137,11 +141,13 @@ document.addEventListener("DOMContentLoaded", function() {
     // FAQ Toggle 
     
     const faqItems = document.querySelectorAll('.faq-item')
+
+    faqItems.forEach(item => {faqToggle(item)})
     
-    const faqToggle = function(faq) {
+    function faqToggle(faq) {
         const faqQ = faq.querySelector('.faq-item__q')
         const faqA = faq.querySelector('.faq-item__a')
-        faqQ.addEventListener('click', function() {
+        faqQ.addEventListener('click', () => {
             if (!faq.classList.contains('active')) {
                 faq.classList.add('active')
                 faqA.style.height = 'auto'
@@ -150,14 +156,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 faqA.style.height = '0px'
     
-                setTimeout(function () {
+                setTimeout(() => {
                     faqA.style.height = height;
                 }, 0);
     
             } else {
                 faqA.style.height = '0px'
     
-                faqA.addEventListener('transitionend', function () {
+                faqA.addEventListener('transitionend', () => {
                     faq.classList.remove('active')
                 }, {
                     once: true
@@ -165,9 +171,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         })
     }
-    
-    faqItems.forEach(item => {faqToggle(item)})
-    
     
     // Stars Rating
     

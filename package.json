@@ -43,6 +43,6 @@
   "dependencies": {
     "js-datepicker": "^5.18.0",
     "swiper": "^6.5.4",
-    "tom-select": "^1.4.3"
+    "tom-select": "1.1"
   }
 }

@@ -135,7 +135,7 @@ task('clean', function() {
 
 const build = series('clean', parallel('scss', 'js', 'html', 'images', 'fonts'))
 const watcher = parallel(build, 'watch-files', server)
-const start = series(watcher)
+const start = series(build, watcher)
 
 
 exports.build = build
