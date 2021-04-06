@@ -4,6 +4,9 @@
         flex-direction: column;
     }
     &__list {
+        @include media-q('md') {
+            margin: 10px 0 15px;
+        }
         list-style: none;
         margin-right: 30px;
         @include media-q('lg') {
@@ -22,6 +25,13 @@
 
             cursor: pointer;
             transition: all .2s ease;
+
+            @include media-q('md') {
+                @include pSmall;
+            }
+            @include media-q('xs') {
+                font-size: 14px;
+            }
 
             &:before {
                 @include pseudo;
@@ -45,8 +55,12 @@
                 }
             }
             &.active {
-            @include h3;
-            color: $accent;
+                @include h3;
+                color: $accent;
+                @include media-q('xs') {
+                    @include h4;
+                    color: $accent;
+                }
                 &:before {
                     width: 40px;
                     background-color: $accent;

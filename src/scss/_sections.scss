@@ -56,7 +56,7 @@
             padding: 85px 0 50px;
         }
         @include media-q('xs') {
-            padding: 50px 0 50px;
+            padding: 50px 0 0;
         }
 
         .btn {
@@ -246,6 +246,9 @@
             .slide-content {
                 &__text {
                     margin-top: 15px;
+                    @include media-q('lg') {
+                        margin: 0;
+                    }
                 }
             }
         }

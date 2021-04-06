@@ -25,7 +25,7 @@
                     </form>
                     <div class="header-feedback">
                         <img src="./images/mobile-vibration.svg" alt="Call us" class="header-feedback__icon">
-                        <div class="header-feedback__text">Call us</div>
+                        <div class="header-feedback__text" id="modal-activate">Call us</div>
                     </div>
                     <nav class="header-menu">
                         <ul class="header-menu__list">
@@ -726,6 +726,25 @@
 </section>
 </main>
 
+<div class="modal-wrapp">
+    <div class="container">
+        <div class="modal">
+            <img src="./images/modal-img.png" alt="Modal img" class="modal__img">
+            <div class="modal-content">
+                <div class="modal__title">Sed ut perspiciatis</div>
+                <div class="modal__desc">
+                    Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, ut enim ad minima veniam, quis nostrum exercitationem ullam corporis.
+                </div>
+                <form class="modal-form">
+                    <input type="email" name="email" id="modal__email" class="modal__input" placeholder="deine@email.com">
+                    <input type="email" name="name" id="modal__name" class="modal__input" placeholder="Name">
+                    <button class="btn">Ja, ich möchte!</button>
+                </form>
+            </div>
+            <div class="modal-close"></div>
+        </div>
+    </div>
+</div>
 <footer class="footer-wrapp">
     <div class="container">
         <div class="footer">
@@ -753,7 +772,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="footer-menu">
+                <nav class="footer-menu">
                     <ul class="footer-menu__list">
                         <li class="footer-menu__item"><a href="#">About</a></li>
                         <li class="footer-menu__item"><a href="#">Product</a></li>
@@ -766,7 +785,7 @@
                         <li class="footer-menu__item"><a href="#">Clients</a></li>
                         <li class="footer-menu__item"><a href="#">Reviews</a></li>
                     </ul>
-                </div>
+                </nav>
                 <div class="footer-labels">
                     <div class="footer-labels__social">
                         <img src="./images/logos-facebook.svg" alt="facebook">

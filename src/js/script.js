@@ -217,4 +217,20 @@ document.addEventListener("DOMContentLoaded", () => {
     
         item.innerHTML = innerStars
     }
+
+    // Modal 
+
+    const modalWrapp = document.querySelector('.modal-wrapp')
+    const modalActivate = document.querySelector('#modal-activate')
+
+    modalActivate.addEventListener('click', () => {
+        modalWrapp.classList.add('active')
+    })
+
+    modalWrapp.addEventListener('click', e => {
+        if ((e.target === e.currentTarget) || e.target.classList.contains('modal-close')) {
+            e.currentTarget.classList.remove('active')
+        }
+    })
+
 })

@@ -45,7 +45,9 @@
                 content: counter(num);
                 counter-increment: num;
                 @include push-auto;
-                @include flex-box(center, center);
+                display: block;
+                line-height: 44px;
+                text-align: center;
                 width: 40px;
                 height: 40px;
                 border: 6px solid $white;
