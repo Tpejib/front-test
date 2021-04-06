@@ -76,6 +76,26 @@
             &:not(:last-child) {
                 margin-right: 5px;
             }
+            &-wrapp {
+                background-image: none;
+            }
+            &_rem {
+                position: relative;
+                background-image: url('../images/star-fill.svg');
+                background-repeat: no-repeat;
+                &:before {
+                    @include pseudo;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 23px;
+                    background-image: url('../images/star-empty.svg');
+                    z-index: -1;
+                }
+            }
+            &_empty {
+                background-image: url('../images/star-empty.svg');
+            }
         }
         &__content {
             flex-grow: 1;
