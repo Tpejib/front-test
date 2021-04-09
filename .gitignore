@@ -12,3 +12,7 @@ package-lock.json
 
 # ignore mac files
 .DS_Store
+
+# other
+
+dist/
